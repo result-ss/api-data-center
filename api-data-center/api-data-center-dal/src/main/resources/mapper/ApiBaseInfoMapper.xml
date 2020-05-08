@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ss.api.data.center.dal.mapper.ApiBaseInfoMapper">
+    <resultMap id="BaseResultMap" type="com.ss.api.data.center.dal.model.ApiBaseInfoDO">
+        <id column="ID" jdbcType="DECIMAL" property="id"/>
+        <result column="URL" jdbcType="VARCHAR" property="url"/>
+        <result column="API_NAME" jdbcType="VARCHAR" property="apiName"/>
+        <result column="API_SERVICE" jdbcType="VARCHAR" property="apiService"/>
+        <result column="REQUEST_DTO" jdbcType="VARCHAR" property="requestDTO"/>
+        <result column="REQUEST_METHOD" jdbcType="VARCHAR" property="requestMethod"/>
+        <result column="STATUS" jdbcType="VARCHAR" property="status"/>
+        <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy"/>
+        <result column="CREATE_AT" jdbcType="TIMESTAMP" property="createAt"/>
+        <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="UPDATE_AT" jdbcType="TIMESTAMP" property="updateAt"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID,
+        URL,
+        API_NAME,
+        API_SERVICE,
+        REQUEST_DTO,
+        REQUEST_METHOD,
+        STATUS,
+        CREATE_BY,
+        CREATE_AT,
+        UPDATE_BY,
+        UPDATE_AT
+    </sql>
+
+    <!--  根据接口路径查询接口信息  -->
+    <select id="queryApiBaseInfo" parameterType="com.ss.api.data.center.dal.model.ApiBaseInfoDO" resultMap="BaseResultMap">
+        select * from t_api_info
+        <where>
+            URL = #{url,jdbcType=VARCHAR}
+            <if test="apiName!='' and apiName!=null">
+                AND API_NAME = #{apiName,jdbcType=VARCHAR}
+            </if>
+            <if test="apiService!='' and apiService!=null">
+                AND API_SERVICE = #{apiService,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>
