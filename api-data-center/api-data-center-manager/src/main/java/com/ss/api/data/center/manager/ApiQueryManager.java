@@ -14,4 +14,5 @@ public interface ApiQueryManager {
      * @return
      */
     ApiBaseInfoBO queryApiDetail(ApiBaseInfoBO apiBaseInfoBO);
+
 }

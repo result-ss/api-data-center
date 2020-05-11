@@ -13,5 +13,44 @@ import lombok.ToString;
 @ToString
 public class ApiBaseInfoBO {
 
+    /**
+     * 接口路径
+     */
+    private String url;
+
+    /**
+     * 接口名称
+     */
+    private String apiName;
+
+    /**
+     * 接口服务
+     */
+    private String apiService;
+
+    /**
+     * 请求参数
+     */
+    private String requestDTO;
+
+    /**
+     * 请求方法
+     */
+    private String requestMethod;
+
+    /**
+     * 接口状态
+     */
+    private String status;
+
+    /**
+     * 创建人
+     */
+    private String createBy;
+
+    /**
+     * 更新人
+     */
+    private String updateBy;
 
 }

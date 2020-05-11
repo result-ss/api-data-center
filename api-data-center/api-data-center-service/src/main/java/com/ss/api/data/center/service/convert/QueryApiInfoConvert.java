@@ -12,21 +12,44 @@ public class QueryApiInfoConvert {
 
     private QueryApiInfoConvert() {}
 
+    /**
+     * QueryApiBaseInfoReqDTO --> ApiBaseInfoBO
+     * @param queryApiBaseInfoReqDTO
+     * @return
+     */
     public static ApiBaseInfoBO getQueryBOByDTO(QueryApiBaseInfoReqDTO queryApiBaseInfoReqDTO){
         if(queryApiBaseInfoReqDTO == null){
             return null;
         }
         ApiBaseInfoBO apiBaseInfoBO = new ApiBaseInfoBO();
-
+        apiBaseInfoBO.setUrl(queryApiBaseInfoReqDTO.getUrl());
+        apiBaseInfoBO.setApiName(queryApiBaseInfoReqDTO.getApiName());
+        apiBaseInfoBO.setApiService(queryApiBaseInfoReqDTO.getApiService());
+        apiBaseInfoBO.setRequestMethod(queryApiBaseInfoReqDTO.getRequestMethod());
+        apiBaseInfoBO.setRequestDTO(queryApiBaseInfoReqDTO.getRequestDTO());
+        apiBaseInfoBO.setCreateBy(queryApiBaseInfoReqDTO.getCreateBy());
+        apiBaseInfoBO.setUpdateBy(queryApiBaseInfoReqDTO.getUpdateBy());
         return apiBaseInfoBO;
     }
 
+    /**
+     * ApiBaseInfoBO --> QueryApiBaseInfoResDTO
+     * @param apiBaseInfoBO
+     * @return
+     */
     public static QueryApiBaseInfoResDTO getQueryDTOByBO(ApiBaseInfoBO apiBaseInfoBO){
         if(apiBaseInfoBO == null){
             return null;
         }
         QueryApiBaseInfoResDTO queryApiBaseInfoResDTO = new QueryApiBaseInfoResDTO();
-
+        queryApiBaseInfoResDTO.setUrl(apiBaseInfoBO.getUrl());
+        queryApiBaseInfoResDTO.setApiName(apiBaseInfoBO.getApiName());
+        queryApiBaseInfoResDTO.setApiService(apiBaseInfoBO.getApiService());
+        queryApiBaseInfoResDTO.setRequestMethod(apiBaseInfoBO.getRequestMethod());
+        queryApiBaseInfoResDTO.setStatus(apiBaseInfoBO.getStatus());
+        queryApiBaseInfoResDTO.setRequestDTO(apiBaseInfoBO.getRequestDTO());
+        queryApiBaseInfoResDTO.setCreateBy(apiBaseInfoBO.getCreateBy());
+        queryApiBaseInfoResDTO.setUpdateBy(apiBaseInfoBO.getUpdateBy());
         return queryApiBaseInfoResDTO;
     }
 }

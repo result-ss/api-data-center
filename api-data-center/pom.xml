@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -35,6 +36,7 @@
         <alibaba.dubbo-rpc-api.version>2.6.5</alibaba.dubbo-rpc-api.version>
         <alibaba.dubbo-config-api.version>2.6.5</alibaba.dubbo-config-api.version>
         <alibaba.dubbo.version>2.6.5</alibaba.dubbo.version>
+        <groovy.version>2.5.6</groovy.version>
     </properties>
 
     <dependencies>
@@ -91,12 +93,6 @@
             <version>${oval.version}</version>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>com.alibaba.boot</groupId>-->
-            <!--<artifactId>dubbo-spring-boot-starter</artifactId>-->
-            <!--<version>${dubbo-spring-boot-starter.version}</version>-->
-        <!--</dependency>-->
-
         <dependency>
             <groupId>com.alibaba.spring</groupId>
             <artifactId>spring-context-support</artifactId>
@@ -113,6 +109,12 @@
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
             <version>3.4.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>${groovy.version}</version>
         </dependency>
 
     </dependencies>

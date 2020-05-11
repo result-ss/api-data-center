@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
  * @author xueshansheng
  * @date 2020/5/7 下午 6:11
  */
-@Repository
 public interface ApiBaseInfoMapper {
 
     /**
