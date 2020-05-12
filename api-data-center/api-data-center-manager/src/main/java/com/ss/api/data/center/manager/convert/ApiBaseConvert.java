@@ -23,6 +23,7 @@ public class ApiBaseConvert {
         apiBaseInfoDO.setApiName(apiBaseInfoBO.getApiName());
         apiBaseInfoDO.setApiService(apiBaseInfoBO.getApiService());
         apiBaseInfoDO.setRequestMethod(apiBaseInfoBO.getRequestMethod());
+        apiBaseInfoDO.setStatus(apiBaseInfoBO.getStatus());
         return apiBaseInfoDO;
     }
 

@@ -17,6 +17,7 @@ public class ApiQueryBiz {
 
     /**
      * 接口详情查询
+     *
      * @param apiBaseInfoBO
      * @return
      */
@@ -24,4 +25,15 @@ public class ApiQueryBiz {
         ApiBaseInfoBO apiBaseInfo = apiQueryCore.queryApiDetail(apiBaseInfoBO);
         return apiBaseInfo;
     }
+
+    /**
+     * 接口信息修改
+     *
+     * @param apiBaseInfoBO
+     * @return
+     */
+    public Boolean modifyApiInfo(ApiBaseInfoBO apiBaseInfoBO) {
+        return apiQueryCore.modifyApiInfo(apiBaseInfoBO);
+    }
+
 }

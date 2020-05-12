@@ -1,6 +1,7 @@
 package com.ss.api.data.center.service.api;
 
 import com.ss.api.data.center.common.result.Result;
+import com.ss.api.data.center.service.api.model.request.ModifyApiBaseInfoReqDTO;
 import com.ss.api.data.center.service.api.model.request.QueryApiBaseInfoReqDTO;
 import com.ss.api.data.center.service.api.model.response.QueryApiBaseInfoResDTO;
 
@@ -16,5 +17,12 @@ public interface ApiQueryService {
      * @return
      */
     Result<QueryApiBaseInfoResDTO> queryApiBaseInfo(QueryApiBaseInfoReqDTO queryApiBaseInfoReqDTO);
+
+    /**
+     * 接口修改
+     * @param modifyApiBaseInfoReqDTO
+     * @return
+     */
+    Result<Boolean> modifyApiBaseInfo(ModifyApiBaseInfoReqDTO modifyApiBaseInfoReqDTO);
 
 }

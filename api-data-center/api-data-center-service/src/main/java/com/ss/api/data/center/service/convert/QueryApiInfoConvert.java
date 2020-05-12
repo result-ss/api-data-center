@@ -1,6 +1,7 @@
 package com.ss.api.data.center.service.convert;
 
 import com.ss.api.data.center.manager.model.ApiBaseInfoBO;
+import com.ss.api.data.center.service.api.model.request.ModifyApiBaseInfoReqDTO;
 import com.ss.api.data.center.service.api.model.request.QueryApiBaseInfoReqDTO;
 import com.ss.api.data.center.service.api.model.response.QueryApiBaseInfoResDTO;
 
@@ -10,15 +11,17 @@ import com.ss.api.data.center.service.api.model.response.QueryApiBaseInfoResDTO;
  */
 public class QueryApiInfoConvert {
 
-    private QueryApiInfoConvert() {}
+    private QueryApiInfoConvert() {
+    }
 
     /**
      * QueryApiBaseInfoReqDTO --> ApiBaseInfoBO
+     *
      * @param queryApiBaseInfoReqDTO
      * @return
      */
-    public static ApiBaseInfoBO getQueryBOByDTO(QueryApiBaseInfoReqDTO queryApiBaseInfoReqDTO){
-        if(queryApiBaseInfoReqDTO == null){
+    public static ApiBaseInfoBO getQueryBOByDTO(QueryApiBaseInfoReqDTO queryApiBaseInfoReqDTO) {
+        if (queryApiBaseInfoReqDTO == null) {
             return null;
         }
         ApiBaseInfoBO apiBaseInfoBO = new ApiBaseInfoBO();
@@ -34,11 +37,12 @@ public class QueryApiInfoConvert {
 
     /**
      * ApiBaseInfoBO --> QueryApiBaseInfoResDTO
+     *
      * @param apiBaseInfoBO
      * @return
      */
-    public static QueryApiBaseInfoResDTO getQueryDTOByBO(ApiBaseInfoBO apiBaseInfoBO){
-        if(apiBaseInfoBO == null){
+    public static QueryApiBaseInfoResDTO getQueryDTOByBO(ApiBaseInfoBO apiBaseInfoBO) {
+        if (apiBaseInfoBO == null) {
             return null;
         }
         QueryApiBaseInfoResDTO queryApiBaseInfoResDTO = new QueryApiBaseInfoResDTO();
@@ -51,5 +55,27 @@ public class QueryApiInfoConvert {
         queryApiBaseInfoResDTO.setCreateBy(apiBaseInfoBO.getCreateBy());
         queryApiBaseInfoResDTO.setUpdateBy(apiBaseInfoBO.getUpdateBy());
         return queryApiBaseInfoResDTO;
+    }
+
+    /**
+     * ModifyApiBaseInfoReqDTO --> ApiBaseInfoBO
+     *
+     * @param modifyApiBaseInfoReqDTO
+     * @return
+     */
+    public static ApiBaseInfoBO getModifyBOByDTO(ModifyApiBaseInfoReqDTO modifyApiBaseInfoReqDTO) {
+        if (modifyApiBaseInfoReqDTO == null) {
+            return null;
+        }
+        ApiBaseInfoBO apiBaseInfoBO = new ApiBaseInfoBO();
+        apiBaseInfoBO.setUrl(modifyApiBaseInfoReqDTO.getUrl());
+        apiBaseInfoBO.setApiName(modifyApiBaseInfoReqDTO.getApiName());
+        apiBaseInfoBO.setApiService(modifyApiBaseInfoReqDTO.getApiService());
+        apiBaseInfoBO.setRequestMethod(modifyApiBaseInfoReqDTO.getRequestMethod());
+        apiBaseInfoBO.setRequestDTO(modifyApiBaseInfoReqDTO.getRequestDTO());
+        apiBaseInfoBO.setUpdateBy(modifyApiBaseInfoReqDTO.getUpdateBy());
+        apiBaseInfoBO.setCreateBy(modifyApiBaseInfoReqDTO.getCreateBy());
+        apiBaseInfoBO.setStatus(modifyApiBaseInfoReqDTO.getStatus());
+        return apiBaseInfoBO;
     }
 }

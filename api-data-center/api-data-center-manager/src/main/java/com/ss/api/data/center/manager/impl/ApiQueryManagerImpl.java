@@ -20,6 +20,7 @@ public class ApiQueryManagerImpl implements ApiQueryManager {
 
     /**
      * 接口详情查询
+     *
      * @param apiBaseInfoBO
      * @return
      */
@@ -27,6 +28,18 @@ public class ApiQueryManagerImpl implements ApiQueryManager {
     public ApiBaseInfoBO queryApiDetail(ApiBaseInfoBO apiBaseInfoBO) {
         ApiBaseInfoDO apiBaseInfoDO = apiBaseInfoMapper.queryApiBaseInfo(ApiBaseConvert.getQueryDOByBO(apiBaseInfoBO));
         return ApiBaseConvert.getQueryBOByDO(apiBaseInfoDO);
+    }
+
+    /**
+     * 更新接口信息
+     *
+     * @param apiBaseInfoBO
+     * @return
+     */
+    @Override
+    public Boolean updateApiDetail(ApiBaseInfoBO apiBaseInfoBO) {
+        int i = apiBaseInfoMapper.updateApiBaseInfo(ApiBaseConvert.getQueryDOByBO(apiBaseInfoBO));
+        return i > 0;
     }
 
 }

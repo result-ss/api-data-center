@@ -30,7 +30,8 @@
     </sql>
 
     <!--  根据接口路径查询接口信息  -->
-    <select id="queryApiBaseInfo" parameterType="com.ss.api.data.center.dal.model.ApiBaseInfoDO" resultMap="BaseResultMap">
+    <select id="queryApiBaseInfo" parameterType="com.ss.api.data.center.dal.model.ApiBaseInfoDO"
+            resultMap="BaseResultMap">
         select * from t_api_info
         <where>
             URL = #{url,jdbcType=VARCHAR}
@@ -43,5 +44,15 @@
         </where>
     </select>
 
+    <!-- 接口信息修改 -->
+    <update id="updateApiBaseInfo" parameterType="com.ss.api.data.center.dal.model.ApiBaseInfoDO">
+        update t_api_info
+        <set>
+            STATUS = #{status,jdbcType=VARCHAR}
+        </set>
+        <where>
+            URL = #{url,jdbcType=VARCHAR}
+        </where>
+    </update>
 
 </mapper>

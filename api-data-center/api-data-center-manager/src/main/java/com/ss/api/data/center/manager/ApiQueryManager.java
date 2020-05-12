@@ -10,9 +10,18 @@ public interface ApiQueryManager {
 
     /**
      * 接口详情查询
+     *
      * @param apiBaseInfoBO
      * @return
      */
     ApiBaseInfoBO queryApiDetail(ApiBaseInfoBO apiBaseInfoBO);
+
+    /**
+     * 接口信息修改
+     *
+     * @param apiBaseInfoBO
+     * @return
+     */
+    Boolean updateApiDetail(ApiBaseInfoBO apiBaseInfoBO);
 
 }

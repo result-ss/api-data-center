@@ -11,8 +11,18 @@ public interface ApiBaseInfoMapper {
 
     /**
      * 接口详情查询
+     *
      * @param apiBaseInfoDO
      * @return
      */
     ApiBaseInfoDO queryApiBaseInfo(ApiBaseInfoDO apiBaseInfoDO);
+
+    /**
+     * 接口信息修改
+     *
+     * @param apiBaseInfoDO
+     * @return
+     */
+    int updateApiBaseInfo(ApiBaseInfoDO apiBaseInfoDO);
+
 }
