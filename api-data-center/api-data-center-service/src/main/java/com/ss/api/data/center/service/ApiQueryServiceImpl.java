@@ -41,10 +41,10 @@ public class ApiQueryServiceImpl implements ApiQueryService {
             ApiBaseInfoBO apiBaseInfo = apiQueryBiz.queryApiDetail(apiBaseInfoBO);
             result.setResult(QueryApiInfoConvert.getQueryDTOByBO(apiBaseInfo));
             Long end = System.currentTimeMillis();
-            log.info("接口详情查询耗时{}，响应参数{}",(end-begin), result);
+            log.info("接口详情查询成功，耗时{}ms，响应参数{}",(end-begin), result);
         } catch (Exception e) {
             Long end = System.currentTimeMillis();
-            log.error(" 接口详情查询发生异常耗时{}，响应参数{},异常信息{}",(end-begin), result, e);
+            log.error(" 接口详情查询发生异常耗时{}ms，响应参数{},异常信息{}",(end-begin), result, e);
         } finally {
             MDC.clear();
         }

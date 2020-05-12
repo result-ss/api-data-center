@@ -124,18 +124,4 @@ public class Result<T> implements Serializable {
         this.errorCode = errorCode;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
