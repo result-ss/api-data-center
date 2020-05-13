@@ -3,6 +3,9 @@ package com.ss.api.data.center.manager.convert;
 import com.ss.api.data.center.dal.model.ApiBaseInfoDO;
 import com.ss.api.data.center.manager.model.ApiBaseInfoBO;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author xueshansheng
  * @date 2020/5/7 下午 6:19
@@ -11,11 +14,12 @@ public class ApiBaseConvert {
 
     /**
      * ApiBaseInfoBO --> ApiBaseInfoDO
+     *
      * @param apiBaseInfoBO
      * @return
      */
-    public static ApiBaseInfoDO getQueryDOByBO(ApiBaseInfoBO apiBaseInfoBO){
-        if(apiBaseInfoBO == null){
+    public static ApiBaseInfoDO getQueryDOByBO(ApiBaseInfoBO apiBaseInfoBO) {
+        if (apiBaseInfoBO == null) {
             return null;
         }
         ApiBaseInfoDO apiBaseInfoDO = new ApiBaseInfoDO();
@@ -29,11 +33,12 @@ public class ApiBaseConvert {
 
     /**
      * ApiBaseInfoDO --> ApiBaseInfoBO
+     *
      * @param apiBaseInfoDO
      * @return
      */
-    public static ApiBaseInfoBO getQueryBOByDO(ApiBaseInfoDO apiBaseInfoDO){
-        if(apiBaseInfoDO == null){
+    public static ApiBaseInfoBO getQueryBOByDO(ApiBaseInfoDO apiBaseInfoDO) {
+        if (apiBaseInfoDO == null) {
             return null;
         }
         ApiBaseInfoBO apiBaseInfoBO = new ApiBaseInfoBO();
@@ -46,6 +51,24 @@ public class ApiBaseConvert {
         apiBaseInfoBO.setCreateBy(apiBaseInfoDO.getCreateBy());
         apiBaseInfoBO.setUpdateBy(apiBaseInfoDO.getUpdateBy());
         return apiBaseInfoBO;
+    }
+
+    /**
+     * ApiBaseInfoDOs --> ApiBaseInfoBOs
+     *
+     * @param apiBaseInfoDOs
+     * @return
+     */
+    public static List<ApiBaseInfoBO> getQueryBOsByDOs(List<ApiBaseInfoDO> apiBaseInfoDOs) {
+        if (apiBaseInfoDOs.size() == 0) {
+            return null;
+        }
+        List<ApiBaseInfoBO> apiBaseInfoBOs = new ArrayList<>();
+        for (ApiBaseInfoDO apiBaseInfoDO : apiBaseInfoDOs) {
+            ApiBaseInfoBO apiBaseInfoBO = getQueryBOByDO(apiBaseInfoDO);
+            apiBaseInfoBOs.add(apiBaseInfoBO);
+        }
+        return apiBaseInfoBOs;
     }
 
 }

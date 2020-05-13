@@ -32,7 +32,7 @@
     <!--  根据接口路径查询接口信息  -->
     <select id="queryApiBaseInfo" parameterType="com.ss.api.data.center.dal.model.ApiBaseInfoDO"
             resultMap="BaseResultMap">
-        select * from t_api_info
+        SELECT * FROM T_API_INFO
         <where>
             URL = #{url,jdbcType=VARCHAR}
             <if test="apiName!='' and apiName!=null">
@@ -46,13 +46,44 @@
 
     <!-- 接口信息修改 -->
     <update id="updateApiBaseInfo" parameterType="com.ss.api.data.center.dal.model.ApiBaseInfoDO">
-        update t_api_info
+        update T_API_INFO
         <set>
             STATUS = #{status,jdbcType=VARCHAR}
+            UPDATE_AT = NOW()
         </set>
         <where>
             URL = #{url,jdbcType=VARCHAR}
         </where>
     </update>
 
+    <!--查询最小id-->
+    <select id="queryMinId" resultType="java.lang.Integer">
+        SELECT IFNULL(MIN(ID), 0)
+        FROM T_API_INFO
+        where
+        <![CDATA[
+            CREATE_AT < DATE_SUB(NOW(), INTERVAL 5 MINUTE)
+        ]]>
+    </select>
+
+    <!--查询最大id-->
+    <select id="queryMaxId" resultType="java.lang.Integer">
+        SELECT IFNULL(MAX(ID), 0)
+        FROM T_API_INFO
+        where
+        <![CDATA[
+            CREATE_AT < DATE_SUB(NOW(), INTERVAL 5 MINUTE)
+        ]]>
+    </select>
+
+    <select id="queryApiBaseInfoList" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM T_API_INFO T
+        WHERE
+        <![CDATA[
+				T.ID >= #{startId}
+			AND T.ID <= #{endId}
+			]]>
+    </select>
 </mapper>

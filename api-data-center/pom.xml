@@ -25,6 +25,7 @@
         <module>api-data-center-service</module>
         <module>api-data-center-task</module>
         <module>api-data-center-web</module>
+        <module>api-data-center-configuration</module>
     </modules>
 
     <properties>
@@ -39,6 +40,7 @@
         <curator.version>4.0.1</curator.version>
         <groovy.version>2.5.6</groovy.version>
         <fastjson.version>1.2.60</fastjson.version>
+        <elastic.job.version>2.1.5</elastic.job.version>
     </properties>
 
     <dependencies>
@@ -112,6 +114,17 @@
             <artifactId>zookeeper</artifactId>
             <version>3.4.13</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-client</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>${curator.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-framework</artifactId>
@@ -133,6 +146,18 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
+        </dependency>
+
+        <!--elastic-job-->
+        <dependency>
+            <groupId>com.dangdang</groupId>
+            <artifactId>elastic-job-lite-core</artifactId>
+            <version>${elastic.job.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dangdang</groupId>
+            <artifactId>elastic-job-lite-spring</artifactId>
+            <version>${elastic.job.version}</version>
         </dependency>
 
     </dependencies>

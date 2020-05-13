@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * @author xueshansheng
  * @date 2020/5/7 下午 5:55
@@ -58,6 +60,40 @@ public class ApiQueryCore {
         }
         redisManager.insertObject(apiBaseInfoBO.getUrl(), apiBaseInfo, 24 * 20 * 60l);
         return apiQueryManager.updateApiDetail(apiBaseInfoBO);
+    }
+
+    /**
+     * 查询最小id
+     *
+     * @return
+     */
+    public Integer queryMinId() {
+        return apiQueryManager.queryMinId();
+    }
+
+    /**
+     * 查询最大id
+     *
+     * @return
+     */
+    public Integer queryMaxId() {
+        return apiQueryManager.queryMaxId();
+    }
+
+    /**
+     * 查询接口信息list
+     *
+     * @param start
+     * @param end
+     * @return
+     */
+    public List<ApiBaseInfoBO> queryApiInfoList(int start, int end) {
+//        // 查redis
+//        if (redisManager.hasKey(apiBaseInfoBO.getUrl())) {
+//            return JSONObject.parseObject(redisManager.queryObjectByKey(apiBaseInfoBO.getUrl()), ApiBaseInfoBO.class);
+//        }
+        List<ApiBaseInfoBO> apiBaseInfoBOS = apiQueryManager.queryApiInfoList(start, end);
+        return apiBaseInfoBOS;
     }
 
 }
