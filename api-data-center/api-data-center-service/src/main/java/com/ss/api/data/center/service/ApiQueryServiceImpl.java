@@ -1,5 +1,6 @@
 package com.ss.api.data.center.service;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.ss.api.data.center.biz.ApiQueryBiz;
 import com.ss.api.data.center.common.result.Result;
 import com.ss.api.data.center.common.utils.VerifyUtil;
@@ -12,7 +13,7 @@ import com.ss.api.data.center.service.convert.QueryApiInfoConvert;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 /**
  * @author xueshansheng
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
+@Component
 public class ApiQueryServiceImpl implements ApiQueryService {
 
     @Autowired
