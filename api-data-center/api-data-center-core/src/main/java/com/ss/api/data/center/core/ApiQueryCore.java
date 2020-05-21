@@ -35,8 +35,10 @@ public class ApiQueryCore {
     public ApiBaseInfoBO queryApiDetail(ApiBaseInfoBO apiBaseInfoBO) {
         // 查redis
         if (redisManager.hasKey(apiBaseInfoBO.getUrl())) {
+            log.info("redis--->result");
             return JSONObject.parseObject(redisManager.queryObjectByKey(apiBaseInfoBO.getUrl()), ApiBaseInfoBO.class);
         }
+        log.info("db--->result");
         ApiBaseInfoBO apiBaseInfo = apiQueryManager.queryApiDetail(apiBaseInfoBO);
         if (apiBaseInfo != null) {
             redisManager.insertObject(apiBaseInfoBO.getUrl(), apiBaseInfo, 24 * 20 * 60l);

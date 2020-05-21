@@ -48,7 +48,7 @@
     <update id="updateApiBaseInfo" parameterType="com.ss.api.data.center.dal.model.ApiBaseInfoDO">
         update T_API_INFO
         <set>
-            STATUS = #{status,jdbcType=VARCHAR}
+            STATUS = #{status,jdbcType=VARCHAR},
             UPDATE_AT = NOW()
         </set>
         <where>
@@ -63,6 +63,7 @@
         where
         <![CDATA[
             CREATE_AT < DATE_SUB(NOW(), INTERVAL 5 MINUTE)
+
         ]]>
     </select>
 
@@ -73,6 +74,7 @@
         where
         <![CDATA[
             CREATE_AT < DATE_SUB(NOW(), INTERVAL 5 MINUTE)
+
         ]]>
     </select>
 
