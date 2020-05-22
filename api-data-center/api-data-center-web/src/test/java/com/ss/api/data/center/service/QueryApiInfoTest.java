@@ -1,6 +1,7 @@
 package com.ss.api.data.center.service;
 
 import com.ss.api.data.center.BaseSpringTest;
+import com.ss.api.data.center.common.annotation.FirstAnnotation;
 import com.ss.api.data.center.common.result.Result;
 import com.ss.api.data.center.service.api.ApiQueryService;
 import com.ss.api.data.center.service.api.model.request.ModifyApiBaseInfoReqDTO;
@@ -21,6 +22,7 @@ public class QueryApiInfoTest extends BaseSpringTest {
     private ApiQueryService apiQueryService;
 
     @Test
+    @FirstAnnotation
     public void queryInfoTest(){
         QueryApiBaseInfoReqDTO queryApiBaseInfoReqDTO = new QueryApiBaseInfoReqDTO();
         queryApiBaseInfoReqDTO.setTraceLogId("ss");
@@ -30,6 +32,7 @@ public class QueryApiInfoTest extends BaseSpringTest {
     }
 
     @Test
+//    @FirstAnnotation
     public void updateTest(){
         ModifyApiBaseInfoReqDTO modifyApiBaseInfoReqDTO = new ModifyApiBaseInfoReqDTO();
         modifyApiBaseInfoReqDTO.setTraceLogId("ss");
